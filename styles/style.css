@@ -294,9 +294,9 @@
 }
 
 .button__text,
-.icon-floopy {
+.icon-floppy {
   position: relative;
-  z-index: 2;
+  z-index: 5;
   color: var(--accent-color);
   mix-blend-mode: difference;
 }
@@ -358,7 +358,7 @@
   font-family: var(--accent-font);
   font-size: 14px;
   font-variation-settings: "wght" var(--basic-font-weight);
-  line-height: 1.2em;
+  line-height: 1.5em;
   text-transform: uppercase;
   color: var(--main-color);
 }
@@ -399,7 +399,7 @@
     flex-direction: column;
   }
 
-  .save-button .icon-floopy {
+  .save-button .icon-floppy {
     width: 28px;
     height: 28px;
   }
