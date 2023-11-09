@@ -32,14 +32,15 @@
 .header {
   display: flex;
   flex-direction: column;
-  margin: 100px 0 50px;
+  margin-block-start: 100px;
+  margin-block-end: 100px;
   text-transform: uppercase;
-  font-family: var(--accent-font);
+  font-family: var(--accent-font), sans-serif;
   align-items: center;
   justify-self: end;
   padding: 25px;
   gap: 20px;
-  width: clamp(370px, 50vw, 700px);
+  inline-size: clamp(370px, 50vw, 700px);
 }
 
 .header,
@@ -53,12 +54,12 @@
   background-color: var(--bg-color);
 }
 
-.header__title {
+.header__logo {
   font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
   padding-block-start: 1.7em;
 }
 
-.header__description {
+.header__title {
   font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
 }
 
@@ -80,7 +81,7 @@
 .theme-menu__button:disabled::before,
 .theme-menu__button:hover {
   opacity: 0.6;
-  transition: opacity 0.3s ease;
+  transition: opacity var(--transition);
 }
 
 .theme-menu__button:disabled::before {
@@ -88,7 +89,7 @@
   position: absolute;
   width: 14px;
   height: 14px;
-  margin-left: -20px;
+  left: -15px;
 }
 
 .theme-menu__button:disabled,
@@ -99,7 +100,7 @@
 .theme-menu__button:focus {
   outline: none;
   opacity: 0.6;
-  transition: opacity 0.3s ease;
+  transition: opacity var(--transition);
 }
 
 .theme-menu__button:after {
@@ -112,7 +113,7 @@
   bottom: -3px;
   background-color: var(--main-color);
   scale: 0;
-  transition: scale 0.3s ease;
+  transition: scale var(--transition);
   transform-origin: left;
 }
 
@@ -120,11 +121,16 @@
   scale: 1;
 }
 
+.card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
 .card {
   display: flex;
   flex-direction: column;
   width: clamp(370px, 50vw, 700px);
-  margin: 50px 0;
 }
 
 .card__title {
@@ -182,7 +188,7 @@
   opacity: 0.5;
   mix-blend-mode: hard-light;
   z-index: 5;
-  font-family: var(--accent-font);
+  font-family: var(--accent-font), sans-serif;
   font-weight: var(--basic-font-weight);
   text-shadow: -1px 0 var(--bg-color), 0 1px var(--bg-color),
     1px 0 var(--bg-color), 0 -1px var(--bg-color);
@@ -228,7 +234,7 @@
 
 .card__icon-button:focus-visible {
   border: 2px solid var(--main-color);
-  transition: border 0.3s ease;
+  transition: border var(--transition);
 }
 
 .card__like-button {
@@ -268,13 +274,13 @@
 .save-button:focus-visible,
 .dialog__button:focus-visible {
   box-shadow: 2px 2px var(--main-color);
-  transition: box-shadow 0.3s ease;
+  transition: box-shadow var(--transition);
 }
 
 .save-buttons-container {
   display: flex;
   justify-content: center;
-  padding-block-end: 100px;
+  padding: 50px 0px 100px;
 }
 
 .save-button {
@@ -286,9 +292,14 @@
   text-align: center;
 }
 
+.save-button .icon-floppy {
+  inline-size: 21px;
+  block-size: 21px;
+}
+
 .button__text {
   line-height: 0.9em;
-  font-family: var(--accent-font);
+  font-family: var(--accent-font), sans-serif;
   font-size: 14px;
   font-variation-settings: "wght" var(--basic-font-weight);
 }
@@ -301,61 +312,13 @@
   mix-blend-mode: difference;
 }
 
-.sparks {
-  opacity: 0;
-}
-
-.core {
-  fill: transparent;
-}
-
-.main-body {
-  fill: transparent;
-}
-
-.like-icon:hover .core {
-  fill: #000;
-  transition: fill 0.3s;
-}
-
-.like-icon:hover .main-body {
-  fill: #000;
-  transition: fill 0.3s 0.05s;
-}
-
-.like-icon:not(:hover) .core {
-  fill: transparent;
-  transition: fill 0.3s 0.03s;
-}
-
-.like-icon:not(:hover) .main-body {
-  fill: transparent;
-  transition: fill 0.3s;
-}
-
-.like-icon:active .core,
-.like-icon:active .main-body {
-  fill: var(--like);
-  transition: fill 0.3s;
-}
-
-.like-icon.is-liked .core,
-.like-icon.is-liked .main-body {
-  fill: var(--like);
-}
-
-.like-icon.is-liked .contour {
-  fill: var(--like);
-  transition: fill 0.3s 0.06s;
-}
-
 .dialog::backdrop {
   background-color: #000;
   opacity: 0.75;
 }
 
 .dialog__text {
-  font-family: var(--accent-font);
+  font-family: var(--accent-font), sans-serif;
   font-size: 14px;
   font-variation-settings: "wght" var(--basic-font-weight);
   line-height: 1.5em;
@@ -377,6 +340,11 @@
   column-gap: 20px;
   align-items: center;
   padding: 30px;
+}
+
+.dialog .icon-floppy {
+  inline-size: 40px;
+  block-size: 40px;
 }
 
 .dialog__button {
