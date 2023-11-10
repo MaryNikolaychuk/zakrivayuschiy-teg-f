@@ -37,15 +37,13 @@
   text-transform: uppercase;
   font-family: var(--accent-font), sans-serif;
   align-items: center;
-  justify-self: end;
   padding: 25px;
   gap: 20px;
-  inline-size: clamp(370px, 50vw, 700px);
+  inline-size: clamp(375px, 50vw, 700px);
 }
 
 .header,
 .card,
-.card__image-container,
 .card__like-button,
 .save-button,
 .dialog__button,
@@ -130,17 +128,20 @@
 .card {
   display: flex;
   flex-direction: column;
-  width: clamp(370px, 50vw, 700px);
+  inline-size: clamp(375px, 50vw, 700px);
 }
 
 .card__title {
   font-variation-settings: "wght" var(--title-font-weight);
   padding: 5px 10px;
+  font-size: 18px;
 }
 
 .card__image-container {
   aspect-ratio: 1/1;
   position: relative;
+  border-top: 2px solid var(--main-color);
+  border-bottom: 2px solid var(--main-color);
 }
 
 .image {
@@ -329,13 +330,13 @@
 .dialog {
   position: fixed;
   inset: 0;
-  inline-size: min(358px, 90vw);
+  inline-size: min(358px, 95vw);
 }
 
 .dialog[open] {
   display: grid;
-  grid-template-rows: 40px 1fr;
-  grid-template-columns: 40px 1fr;
+  grid-template-rows: min-content 1fr;
+  grid-template-columns: min-content 1fr;
   row-gap: 30px;
   column-gap: 20px;
   align-items: center;
@@ -360,7 +361,7 @@
 @media (width <= 375px) {
   .header,
   .card {
-    width: 100vw;
+    inline-size: 100vw;
   }
 
   .save-button {
@@ -368,11 +369,11 @@
   }
 
   .save-button .icon-floppy {
-    width: 28px;
-    height: 28px;
+    inline-size: 28px;
+    block-size: 28px;
   }
 
-  .header__title {
+  .header__logo {
     font-size: clamp(2.5rem, -0.7727rem + 16.3636vw, 3.0625rem);
   }
 }
